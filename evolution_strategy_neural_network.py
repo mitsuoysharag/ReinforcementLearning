@@ -30,7 +30,7 @@ alpha = 0.01 # learning rate
 x_train = [[0, 0], [0, 1], [1, 0], [1, 1]]
 y_train = [[1], [0], [0], [1]]
 
-for i in range(300):
+for i in range(500):
   if i % 20 == 0:
     print('Reward: ', reward(y_train, nn(x_train, w1, b1, w2, b2)))
 
