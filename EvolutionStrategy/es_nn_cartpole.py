@@ -37,13 +37,14 @@ nn = NN(w1, b1, w2, b2)
 npop = 50 # population size
 sigma = 0.1 # noise standard deviation
 alpha = 0.01 # learning rate
-epochs = 200
+epochs = 300
 steps = 500
 
 def reward(nn):
   state = env.reset()
   total_reward = 0
   for _ in range(steps):
+    # action = np.random.choice(action_size, p=nn.predict(state))
     action = np.argmax(nn.predict(state))
     state, reward, done, _ = env.step(action)
     total_reward += reward
@@ -90,6 +91,7 @@ try:
     
     for time in range(steps):
       env.render()
+      # action = np.random.choice(action_size, p=nn.predict(state))
       action = np.argmax(nn.predict(state))
       state, reward, done, _ = env.step(action)
       total_reward += reward
