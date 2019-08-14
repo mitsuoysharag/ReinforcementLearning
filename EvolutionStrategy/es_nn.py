@@ -1,9 +1,8 @@
 #%%
-
 import numpy as np
 np.set_printoptions(suppress=True)
-# np.random.seed(0)
 
+#%%
 def sigmoid(x):
   return 1 / (1 + np.exp(-x))
 
@@ -20,7 +19,7 @@ w2 = np.random.randn(3, 1)
 b2 = np.random.randn(1)
 
 def reward(t, y):
-  reward = -np.sum(np.square(t - y))
+  reward = np.sum(np.square(t - y)) * -1
   return reward
 
 npop = 10 # population size
@@ -30,9 +29,9 @@ alpha = 0.01 # learning rate
 x_train = [[0, 0], [0, 1], [1, 0], [1, 1]]
 y_train = [[1], [0], [0], [1]]
 
-for i in range(500):
+for i in range(401):
   if i % 20 == 0:
-    print('Reward: ', reward(y_train, nn(x_train, w1, b1, w2, b2)))
+    print('Reward %s: %f' % (i, reward(y_train, nn(x_train, w1, b1, w2, b2))))
 
   Nw1 = np.random.randn(npop, 2, 3)
   Nb1 = np.random.randn(npop, 3)
@@ -53,6 +52,6 @@ for i in range(500):
   w2 += (alpha/(npop*sigma) * np.dot(Nw2.T, A)).T
   b2 += (alpha/(npop*sigma) * np.dot(Nb2.T, A)).T
 
-print('-'*50)
+print('-' * 50)
 print('Prediction: ')
 print(nn(x_train, w1, b1, w2, b2))
