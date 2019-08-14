@@ -20,7 +20,7 @@ w2 = np.random.randn(3, 1)
 b2 = np.random.randn(1)
 
 def reward(t, y):
-  reward = - np.sum(np.square(t - y))
+  reward = -np.sum(np.square(t - y))
   return reward
 
 npop = 10 # population size
