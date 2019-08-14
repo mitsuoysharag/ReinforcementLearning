@@ -29,10 +29,7 @@ alpha = 0.01 # learning rate
 x_train = [[0, 0], [0, 1], [1, 0], [1, 1]]
 y_train = [[1], [0], [0], [1]]
 
-for i in range(401):
-  if i % 20 == 0:
-    print('Reward %s: %f' % (i, reward(y_train, nn(x_train, w1, b1, w2, b2))))
-
+for i in range(400):
   Nw1 = np.random.randn(npop, 2, 3)
   Nb1 = np.random.randn(npop, 3)
   Nw2 = np.random.randn(npop, 3, 1)
@@ -51,6 +48,9 @@ for i in range(401):
   b1 += (alpha/(npop*sigma) * np.dot(Nb1.T, A)).T
   w2 += (alpha/(npop*sigma) * np.dot(Nw2.T, A)).T
   b2 += (alpha/(npop*sigma) * np.dot(Nb2.T, A)).T
+
+  if (i+1) % 20 == 0:
+    print('Reward %s: %f' % ((i+1), reward(y_train, nn(x_train, w1, b1, w2, b2))))
 
 print('-' * 50)
 print('Prediction: ')

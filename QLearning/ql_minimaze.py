@@ -1,7 +1,7 @@
 #%%
 import random as rd
 from collections import defaultdict
-from environments.minimaze import MiniMaze 
+from Environments.minimaze import MiniMaze 
 
 #%%
 def chooseAction(Q_state, epsilon=0.2, best=False):
