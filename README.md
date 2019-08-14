@@ -1,6 +1,6 @@
 # Reinforcement Learning
 
-In these tutorials for reinforcement learning, it covers from the basic RL algorithms to advanced algorithms developed recent years.
+This repository provides code for popular Reinforcement Learning algorithms.
 
 # Table of Contents
-  * [Evolution Strategy](https://https://github.com/mitsuoysharag/ReinforcementLearning)
+  * [Evolution Strategy](https://github.com/mitsuoysharag/ReinforcementLearning/tree/master/EvolutionStrategy)
