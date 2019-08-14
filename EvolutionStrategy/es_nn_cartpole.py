@@ -34,10 +34,10 @@ b2 = np.random.randn(action_size)
 
 nn = NN(w1, b1, w2, b2)
 
-npop = 50 # population size
+npop = 20 # population size
 sigma = 0.1 # noise standard deviation
 alpha = 0.01 # learning rate
-epochs = 300
+epochs = 500
 steps = 500
 
 def reward(nn):
