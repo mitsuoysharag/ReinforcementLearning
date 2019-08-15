@@ -23,7 +23,7 @@ class NN:
     y2 = self.softmax(o2)
     return y2
 
-game = ['CartPole-v1', 'MountainCar-v0'][1]
+game = ['CartPole-v1', 'MountainCar-v0'][0] # choose a game
 
 env = gym.make(game)
 state_size = env.observation_space.shape[0]
