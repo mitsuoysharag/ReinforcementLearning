@@ -37,7 +37,7 @@ nn = NN(w1, b1, w2, b2)
 npop = 20 # population size
 sigma = 0.1 # noise standard deviation
 alpha = 0.01 # learning rate
-epochs = 500
+epochs = 1000
 steps = 500
 
 def reward(nn):
