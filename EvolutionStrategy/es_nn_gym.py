@@ -23,7 +23,9 @@ class NN:
     y2 = self.softmax(o2)
     return y2
 
-env = gym.make('CartPole-v1')
+game = ['CartPole-v1', 'MountainCar-v0'][1]
+
+env = gym.make(game)
 state_size = env.observation_space.shape[0]
 action_size = env.action_space.n
 
@@ -37,7 +39,7 @@ nn = NN(w1, b1, w2, b2)
 npop = 20 # population size
 sigma = 0.1 # noise standard deviation
 alpha = 0.01 # learning rate
-epochs = 1000
+epochs = 2000
 steps = 500
 
 def reward(nn):
@@ -47,7 +49,10 @@ def reward(nn):
     # action = np.random.choice(action_size, p=nn.predict(state))
     action = np.argmax(nn.predict(state))
     state, reward, done, _ = env.step(action)
+
+    if game == 'MountainCar-v0' and state[0] > -0.2: reward = 0
     total_reward += reward
+
     if done: break 
   return total_reward
 
@@ -81,7 +86,7 @@ except KeyboardInterrupt:
 env.close()
 
 #%%
-env = gym.make('CartPole-v1')
+env = gym.make(game)
 episodes = 5
 
 try:
